@@ -80,3 +80,18 @@ const InputQuestions = [
             message: 'Add any additional information'
           }
         ];
+        
+        function generateReadme(answers) {
+            return answers.projectType === 'Command-line Input tool' ? cliInput(answers) : webAppInput(answers);
+          }
+          
+          function writeToFile(filename, data) {
+            const filePath = `${process.cwd()}/${filename}`;
+          
+            fs.writeFile(filePath, data, 'utf8', (err) => {
+              if (err) {
+                console.log('Failed to create README.md');
+                console.error(err);
+              }
+            });
+          }
