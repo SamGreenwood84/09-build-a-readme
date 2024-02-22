@@ -1,16 +1,19 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const { cliInput, webAppInput } = require('./input');
-
-console.log(
-  "Hello Coders! Let's build a readme! Skip the boring part and just input your answers to our developer-approved questionnaire. Let's gooooo!"
-);
+const fs = require("fs");
+const inquirer = require("inquirer");
+const { webAppInput } = require("./input");
 
 const isValidEmail = (email) => {
   const emailRegex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return emailRegex.test(email);
 };
+
+console.log("Hello Coders! Let's build-a-readme! Skip the boring part and just input your answers to our developer-approved questionnaire. Let's gooooo!");
+
+// Function to dynamically load cliInput based on user input
+function loadCliInput() {
+  return require("./input").cliInput;
+}
 
 const InputQuestions = [
   {
@@ -84,9 +87,14 @@ const InputQuestions = [
 ];
 
 function generateReadme(answers) {
-  return answers.projectType === "Command-line Input tool"
+  const cliInput = loadCliInput();
+  
+  const readmeContent = answers.projectType === "Command-line Input tool"
     ? cliInput(answers)
     : webAppInput(answers);
+
+  // Ensure readmeContent is a string
+  return readmeContent ? readmeContent.toString() : '';
 }
 
 function writeToFile(filename, data) {
@@ -128,3 +136,4 @@ function startQuestions() {
 }
 
 startQuestions();
+

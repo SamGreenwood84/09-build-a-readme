@@ -80,3 +80,63 @@ function generateMarkdown(data) {
 
 module.exports = generateMarkdown;
 
+// input.js
+
+function cliInput(answers) {
+  return `
+# ${answers.title}
+
+## Description
+${answers.description}
+
+## Installation Instructions
+${answers.installationInstructions}
+
+## Command-line Usage
+${answers.commandUsage}
+
+## Collaboration
+${answers.collaboration}
+
+## License
+This project is licensed under the ${answers.license} License.
+
+## Contributors
+GitHub contributors: ${answers.githubUsername}
+
+## Contact
+For any inquiries, please contact ${answers.email}.
+  `;
+}
+
+function webAppInput(answers) {
+  return `
+# ${answers.title}
+
+## Description
+${answers.description}
+
+## Installation Instructions
+${answers.installationInstructions}
+
+## Usage Information
+${answers.usageInformation}
+
+## Collaboration
+${answers.collaboration}
+
+## License
+This project is licensed under the ${answers.license} License.
+
+## Contributors
+GitHub contributors: ${answers.githubUsername}
+
+## Contact
+For any inquiries, please contact ${answers.email}.
+
+## Project URL
+${answers.projectUrl}
+  `;
+}
+
+module.exports = { cliInput, webAppInput };
