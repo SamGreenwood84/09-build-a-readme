@@ -1,13 +1,13 @@
 {
-  "name": "static-site",
+  "name": "09-build-a-readme",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command line input application where the user provides input based on a questionnaire and the app generates a complete README.md file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^6.3.1"
   }
