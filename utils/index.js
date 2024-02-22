@@ -1,13 +1,14 @@
-const fs = require("fs");
-const inquirer = require("inquirer");
-const { cliInput, webAppInput } = require("./input");
+const fs = require('fs');
+const inquirer = require('inquirer');
+const { cliInput, webAppInput } = require('./input');
 
 console.log(
   "Hello Coders! Let's build a readme! Skip the boring part and just input your answers to our developer-approved questionnaire. Let's gooooo!"
 );
 
 const isValidEmail = (email) => {
-  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailRegex =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return emailRegex.test(email);
 };
 
