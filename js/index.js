@@ -80,7 +80,7 @@ const InputQuestions = [
             message: 'Add any additional information'
           }
         ];
-        
+
         function generateReadme(answers) {
             return answers.projectType === 'Command-line Input tool' ? cliInput(answers) : webAppInput(answers);
           }
@@ -95,3 +95,29 @@ const InputQuestions = [
               }
             });
           }
+          function confirmAndGenerateReadme(answers) {
+            console.log('Confirm your input:');
+            console.log(JSON.stringify(answers, null, '  '));
+          
+            inquirer.prompt([
+              {
+                type: 'confirm',
+                name: 'confirmGeneration',
+                message: 'Have you confirmed the details? Ready?',
+                default: true
+              }
+            ]).then(({ confirmGeneration }) => {
+              if (confirmGeneration) {
+                const readmeContent = generateReadme(answers);
+                writeToFile('README.md', readmeContent);
+              } else {
+                console.log('Unable to generate README. Try again from the beginning.');
+              }
+            });
+          }
+          
+          function startQuestions() {
+            inquirer.prompt(InputQuestions).then(confirmAndGenerateReadme);
+          }
+          
+          startQuestions();
