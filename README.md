@@ -33,8 +33,6 @@ THEN a high-quality, professional README.md is generated with the project title,
 
 - [Live Demo](#live-demo)
 - [Description](#description)
-- [Built With](#built-with)
-- [Features](#features)
 - [Getting Started](#getting-started)
 - [Collaboration](#collaborating)
 - [Contact](#contact)

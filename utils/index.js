@@ -82,7 +82,7 @@ const InputQuestions = [
   {
     type: "input",
     name: "additionalInformation",
-    message: "Add any additional information",
+    message: "Add any additional information, references or sources",
   },
 ];
 
