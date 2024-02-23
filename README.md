@@ -63,6 +63,9 @@ WHEN I click on the links in the Table of Contents
 
 THEN I am taken to the corresponding section of the README
 
+# DEPLOYED APP VIDEO
+
+[Video example of build-a-readme](utils/assets/images/build-a-readme.webm)
 
 
 # REFERENCES
